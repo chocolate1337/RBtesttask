@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block title %}
+    Добавить статью
+{% endblock %}
+
+{% block content %}
+    <form role="form" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form%}
+        {% buttons submit='опубликовать' reset="Отменить" %}{% endbuttons %}
+    </form>
+
+{% endblock %}

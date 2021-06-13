@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block title %}
+    Авторы
+{% endblock %}
+
+{% block content %}
+<h1>Cписок авторов</h1>
+<table class="table">
+        {% for line in lines %}
+            <tr>
+                <td><a href = "authors/detail/{{line.id}}">{{ line }}</a></td>
+
+            </tr>
+        {% endfor %}
+    </table>
+
+    <hr>
+
+    {% bootstrap_pagination lines url="" extra="q=foo" size="small" %}
+
+    {% bootstrap_pagination lines url="" size="large" %}
+{% endblock %}

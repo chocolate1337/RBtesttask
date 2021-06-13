@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<h1>{{article_detail.title}}</h1>
+<h2>Автор:
+    {% for author in article_detail.authors.all %}
+    <a href = "{% url 'author' pk=author.id %}">{{ author }}</a>
+    {% endfor %}</h2>
+<h4>Содержание: {{article_detail.text}}</h4>
+
+{% endblock %}

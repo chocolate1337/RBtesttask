@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block title %}
+    Авторы
+{% endblock %}
+
+{% block content %}
+<h1>Cписок Статей</h1>
+<table class="table">
+        {% for line in lines %}
+            <tr>
+                <td><strong>Автор(ы):</strong>{% for names in line.authors.all %} {{names}}, {% endfor %}</td>
+                <td><a href = "articles/detail/{{line.id}}">{{line.title}}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <hr>
+
+    {% bootstrap_pagination lines url="articles/pagination?page=1&flop=flip" extra="q=foo" size="small" %}
+
+    {% bootstrap_pagination lines url="articles/pagination?page=1" size="large" %}
+{% endblock %}

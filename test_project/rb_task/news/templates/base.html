@@ -1,0 +1,20 @@
+{% extends 'bootstrap.html' %}
+
+{% load bootstrap4 %}
+
+{% block bootstrap4_content %}
+    <div class="container">
+        <h1>{% block title %}{% endblock %}</h1>
+
+        <p>
+            <a href="{% url 'authors' %}">Авторы</a>
+            <a href="{% url 'articles' %}">Статьи</a>
+            <a href="{% url 'article_create' %}">Добавить Статью</a>
+        </p>
+
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+{% endblock %}
